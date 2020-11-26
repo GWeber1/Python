@@ -289,7 +289,7 @@ def desenha_janela(superficie, area, score = 0, ultimo_score = 0):
 
     desenha_area(superficie, area)
 
-def main(win): 
+def main(inicia): 
     pygame.init()
     pygame.mixer.music.load('buttercup.mp3')
     pygame.mixer.music.play()
@@ -366,30 +366,30 @@ def main(win):
             mudar_peca = False 
             score += limpa_linhas(area, posicoes) * 10
         
-        desenha_janela(win, area, score, ultimo_score) 
-        desenha_proxima_forma(proxima_peca, win)
+        desenha_janela(inicia, area, score, ultimo_score) 
+        desenha_proxima_forma(proxima_peca, inicia)
         pygame.display.update()
 
         if checa_perda(posicoes):
-            desenha_texto(win, 'VOCÊ PERDEU!', 80, (cor_branca))
+            desenha_texto(inicia, 'VOCÊ PERDEU!', 80, (cor_branca))
             pygame.display.update()
             pygame.time.delay(1500)
             run = False 
             atualiza_score(score)
 
-def menu_principal(win):
+def menu_principal(inicia):
     run = True 
     while run:
-        win.fill((cor_preta))
-        desenha_texto(win, 'Pressione qualquer tecla', 60, (cor_branca))
+        inicia.fill((cor_preta))
+        desenha_texto(inicia, 'Pressione qualquer tecla', 60, (cor_branca))
         pygame.display.update()
         for event in pygame.event.get():
             if event.type == pygame.QUIT:
                 run = False 
             if event.type == pygame.KEYDOWN:
-                main(win)
+                main(inicia)
 
     pygame.display.quit()
-win = pygame.display.set_mode((tela_tamanho, tela_largura))
+inicia = pygame.display.set_mode((tela_tamanho, tela_largura))
 pygame.display.set_caption('Tetris') 
-menu_principal(win)       
+menu_principal(inicia)       
