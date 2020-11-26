@@ -339,7 +339,7 @@ def main(inicia): #Função que será chamado ao iniciar o jogo
                     peca_atual.x += 1
                     if not(espaco_valido(peca_atual, area)):
                         peca_atual.x -= 1
-                if event.key == pygame.K_DOWN: # se a tecla pressionada for ^
+                if event.key == pygame.K_DOWN: # se a tecla pressionada for v
                     peca_atual.y += 1
                     if not(espaco_valido(peca_atual, area)):
                         peca_atual.y -= 1
