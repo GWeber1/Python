@@ -1,20 +1,20 @@
-import pyxel 
-import bloco 
-import constantes
+import bloco #código com o objeto que termina as ações dos blocos
+import constantes # código onde se encontra determinado o formato dos blocos, as rotações e as direções possíveis
 import random 
+import pyxel 
 
 class Tetris: 
     def __init__(self):
-        pyxel.init(120, 220, fps = 60)
-        pyxel.image(0).load(0,0, 'bloco_imagem.png')
-        self.reinicia()
-        pyxel.run(self.atualiza, self.desenha)
+        pyxel.init(120, 220, fps = 75) # fps determina a taxa de atualização e consequentemente a velocidade de queda
+        pyxel.image(0).load(0,0, 'bloco_imagem.png') # carrega imagem das cores
+        self.reinicia() # começa o jogo
+        pyxel.run(self.atualiza, self.desenha) #cria as imagens
     
     def reinicia(self):
-        self.estado = 'iniciado'
-        self.frame_count_ultimo_movimento = 0
-        self.pontos = 0
-        self.area = []
+        self.estado = 'iniciado' #inicia o jogo
+        self.frame_count_ultimo_movimento = 0 #leva o bloco ao início
+        self.pontos = 0 #zera os pontos
+        self.area = [] 
         self.area_peca_cores = []
         self.blocos = [0,1,2,3,4,5,6]
         for linha in range(22):
@@ -27,7 +27,7 @@ class Tetris:
             pyxel.quit()
         
         if pyxel.btnp(pyxel.KEY_R):
-            self.inicia()
+            self.reinicia()
             return
 
         if pyxel.btnp(pyxel.KEY_P):
@@ -47,10 +47,8 @@ class Tetris:
             mover_direcao = constantes.direcao_R
         elif pyxel.btnp(pyxel.KEY_DOWN, 12, 2):
             mover_direcao = constantes.direcao_D
-        elif pyxel.btnp(pyxel.KEY_Z, 12, 20):
+        elif pyxel.btnp(pyxel.KEY_UP, 12, 20):
             rotacionar_direcao = constantes.direcao_L
-        elif pyxel.btnp(pyxel.KEY_X, 12, 20):
-            rotacionar_direcao = constantes.direcao_R
         
         if self.bloco.mover_bloco(mover_direcao, self.area):
             if mover_direcao == constantes.direcao_D:
