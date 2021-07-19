@@ -1,2 +1,1 @@
-## Atenção: Para executar e rodar o jogo, é necessário ter instalado a versão mais atualizada do Python 3 junto à biblioteca de jogos Pygame! Disponibilizo o código
-## para alterações mas dado os devidos créditos! :D 
+## Atenção: Para executar e rodar o jogo, é necessário ter instalado a versão mais atualizada do Python 3 junto à biblioteca de jogos Pygame! Disponibilizo o código para alterações mas dado os devidos créditos! :D 
